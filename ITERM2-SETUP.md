@@ -269,14 +269,38 @@ Everything here is done in **Settings** (`Cmd + ,`). Changes show up **right awa
 **Get a popular one (Dracula, Catppuccin, Tokyo Night…):**
 
 1. Go to **[iterm2colorschemes.com](https://iterm2colorschemes.com)** and download the theme you like. It's a file ending in `.itermcolors`.
-   _(For Catppuccin, use [github.com/catppuccin/iterm](https://github.com/catppuccin/iterm).)_
 2. In iTerm2: **Settings → Profiles → Colors → Color Presets… → Import…**
 3. Pick the file you downloaded.
 4. Open **Color Presets…** again and click the theme's name.
 
+#### Setup: Catppuccin Mocha Theme
+
+Soft pastel colors on a deep slate canvas. It's gentle on the eyes and one of the most popular modern developer themes.
+
+![Catppuccin Mocha Theme Setup](./assets/terminal-theme-catppuccin.png)
+
+**1. Download the theme file:**
+
+```bash
+curl -L -o ~/Downloads/Catppuccin-Mocha.itermcolors \
+  https://raw.githubusercontent.com/catppuccin/iterm/main/colors/catppuccin-mocha.itermcolors
+```
+
+**2. Import it into iTerm2:**
+
+```bash
+open ~/Downloads/Catppuccin-Mocha.itermcolors
+```
+
+**3. Turn it on:** **Settings → Profiles → Colors → Color Presets…** → click **Catppuccin Mocha**. Done! ☕
+
+---
+
 #### Setup: Dracula Theme
 
 Dark purple background with pink, green, and cyan text. One of the most popular coding themes in the world.
+
+![Dracula Theme Setup](./assets/terminal-theme-dracula.png)
 
 **1. Download the theme file:**
 
@@ -297,9 +321,13 @@ _(Opening the file adds it to iTerm2 automatically. You can also use **Settings 
 
 Official site: [draculatheme.com/iterm](https://draculatheme.com/iterm)
 
+---
+
 #### Setup: Matrix Theme
 
 Black background with bright green "hacker" text, like the movie _The Matrix_.
+
+![Matrix Theme Setup](./assets/terminal-theme-matrix.png)
 
 **1. Download the theme file:**
 

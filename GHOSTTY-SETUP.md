@@ -286,9 +286,27 @@ theme = "Catppuccin Mocha"
 
 **Student favorites:** `Catppuccin Mocha` · `TokyoNight` · `Dracula` · `Nord` · `Gruvbox Dark` · `Rose Pine`
 
+#### Setup: Catppuccin Mocha Theme (Default)
+
+Soft pastel colors on a deep slate canvas. It's gentle on the eyes and the default theme configured in this guide.
+
+![Ghostty Catppuccin Mocha Theme Setup](./assets/ghostty-theme-catppuccin.png)
+
+**1.** Open the config (`Cmd + ,`) and set:
+
+```ini
+theme = "Catppuccin Mocha"
+```
+
+**2.** Save and reload with `Cmd + Shift + ,`. Done! ☕
+
+---
+
 #### Setup: Dracula Theme
 
 Dark purple background with pink, green, and cyan text. One of the most popular coding themes in the world.
+
+![Ghostty Dracula Theme Setup](./assets/ghostty-theme-dracula.png)
 
 **1.** Check that Ghostty has it:
 
@@ -324,9 +342,13 @@ Official site: [draculatheme.com/ghostty](https://draculatheme.com/ghostty)
 
 </details>
 
+---
+
 #### Setup: Matrix Theme
 
 Black background with bright green "hacker" text, like the movie _The Matrix_.
+
+![Ghostty Matrix Theme Setup](./assets/ghostty-theme-matrix.png)
 
 **1.** Check that Ghostty has it:
 

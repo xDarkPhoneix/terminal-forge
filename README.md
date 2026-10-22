@@ -119,7 +119,7 @@ Before getting started, verify you have:
 > [!NOTE]
 > Run each command sequentially in your terminal and press **Return**. Complete every step in order and execute the verification command before advancing to the next stage.
 
----
+<!-- ---
 
 <a id="quick-start"></a>
 
@@ -160,7 +160,7 @@ plugins=(git macos)
 
 Launch a fresh terminal window or run `p10k configure` to step through the visual setup wizard.
 
----
+--- -->
 
 <a id="beginner-roadmap"></a>
 
