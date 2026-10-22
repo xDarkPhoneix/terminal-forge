@@ -49,7 +49,7 @@ _A curated, high-performance, and visually refined developer environment built o
 
 ## 🖼️ Design Gallery
 
-Not sure what your terminal should look like? Browse the sample designs below. Click a preview to see it full-size, and if you like one, follow its setup guide to build it yourself.
+Not sure what your terminal should look like? Browse the sample designs below. Click a preview to see it full-size.
 
 <table>
   <tr>
@@ -72,14 +72,12 @@ Not sure what your terminal should look like? Browse the sample designs below. C
     <td valign="top">
       <i>Build · Learn · Conquer</i><br /><br />
       A dark-fantasy command centre with a dragon-castle background, a jade ASCII dragon, and five Ghostty split panes.<br /><br />
-      <b>Stack:</b> Ubuntu · Ghostty · Zsh · Powerlevel10k · JetBrains Mono Nerd Font · eza · Neofetch<br /><br />
-      👉 <a href="./DragonForge.md"><b>Set up Dragon Forge</b></a>
+      <b>Stack:</b> Ubuntu · Ghostty · Zsh · Powerlevel10k · JetBrains Mono Nerd Font · eza · Neofetch
     </td>
     <td valign="top">
       <i>Code · Build · Deploy · Repeat</i><br /><br />
       A neon-blue cyberpunk workspace with panes for git, a dev server, Docker containers, system stats, git branches, and quick commands.<br /><br />
-      <b>Stack:</b> macOS · iTerm2 · Zsh · VS Code · Node · Python · Docker · Postgres · Redis<br /><br />
-      👉 <a href="./DevDeck.md"><b>Set up DevDeck</b></a> 
+      <b>Stack:</b> macOS · iTerm2 · Zsh · VS Code · Node · Python · Docker · Postgres · Redis
     </td>
   </tr>
 </table>
@@ -91,7 +89,7 @@ Not sure what your terminal should look like? Browse the sample designs below. C
 
 <a id="system-architecture"></a>
 
-## 🏗️ System Architecture
+## System Architecture
 
 Terminal Forge assembles an elite, production-grade terminal stack tailored for modern engineering workflows:
 
@@ -109,7 +107,7 @@ Terminal Forge assembles an elite, production-grade terminal stack tailored for 
 
 <a id="requirements"></a>
 
-## 📋 Requirements
+## Requirements
 
 Before getting started, verify you have:
 
@@ -125,7 +123,7 @@ Before getting started, verify you have:
 
 <a id="quick-start"></a>
 
-## ⚡ Quick Start
+## Quick Start
 
 For experienced developers seeking the fast path, here is the complete setup pipeline using **Ghostty**:
 
@@ -164,25 +162,189 @@ Launch a fresh terminal window or run `p10k configure` to step through the visua
 
 ---
 
+<a id="beginner-roadmap"></a>
+
+## Beginner Roadmap
+
+Brand new to the terminal? No problem. Start here, then switch to the guide for your terminal app.
+
+|  #  | What you'll do                                                    | Where                                                                         |
+| :-: | :---------------------------------------------------------------- | :---------------------------------------------------------------------------- |
+|  1  | Pick a terminal app                                               | [⚖️ Ghostty vs iTerm2](#terminal-selection-ghostty-vs-iterm2)                 |
+|  2  | Learn what a terminal is and how to type your first commands      | [🧭 Terminal 101](#terminal-101)                                              |
+|  3  | Install Homebrew and your terminal app, and check Zsh (Steps 1–3) | [📖 Step-by-Step Installation](#step-by-step-installation)                    |
+|  4  | Follow **your** guide: themes, icons, shortcuts, keyboard keys    | [👻 Ghostty Guide](./GHOSTTY-SETUP.md) · [🚀 iTerm2 Guide](./ITERM2-SETUP.md) |
+|  5  | Check that everything works                                       | Final Check at the end of your guide                                          |
+
+> [!TIP]
+> Stuck at any point? Jump to [🛠️ Troubleshooting](#troubleshooting) or the Help section in your guide. Most problems are fixed by restarting the terminal or running `source ~/.zshrc`.
+
+---
+
 <a id="terminal-selection-ghostty-vs-iterm2"></a>
 
-## ⚖️ Terminal Selection: Ghostty vs iTerm2
+## Terminal Selection: Ghostty vs iTerm2
 
-Choose **one** terminal application. Both deliver an exceptional experience, but cater to different philosophies:
+A **terminal app** is the window you type commands into. macOS ships with a basic one called _Terminal_, but Ghostty and iTerm2 are faster, prettier, and far more customizable. Pick **one**. You can always try the other later.
 
-| Feature                | 👻 Ghostty _(Recommended)_                       | 🚀 iTerm2                                                |
-| :--------------------- | :----------------------------------------------- | :------------------------------------------------------- |
-| **Rendering Engine**   | Native Metal GPU acceleration (blazing fast)     | CPU / Metal rendering                                    |
-| **Configuration**      | Clean, declarative text file (`config.ghostty`)  | Comprehensive GUI preferences window                     |
-| **Resource Footprint** | Ultra-minimal memory footprint                   | Moderate footprint                                       |
-| **UI Philosophy**      | Sleek, distraction-free, modern macOS native     | Feature-dense, extensive toolbars & menus                |
-| **Best For**           | Developers who value pure speed & dotfile setups | Developers who want deep GUI settings & legacy workflows |
+| Feature               | 👻 Ghostty _(Recommended)_                  | 🚀 iTerm2                                                |
+| :-------------------- | :------------------------------------------ | :------------------------------------------------------- |
+| **How you set it up** | Edit a small text file (`config.ghostty`)   | Click through a settings window (no files to edit)       |
+| **Speed**             | Very fast (GPU-accelerated)                 | Fast                                                     |
+| **Look & feel**       | Minimal, clean, native macOS                | Feature-packed with lots of menus                        |
+| **Extras**            | Built-in themes, drop-down "quick terminal" | Hotkey window, status bar, paste history, instant replay |
+| **Best for**          | People who like simple config files         | People who prefer clicking over typing config            |
+
+> [!NOTE]
+> **Can't decide?** Choose **Ghostty** if you're comfortable editing a text file, or **iTerm2** if you'd rather change everything with menus and checkboxes. There's a separate, step-by-step guide for each one.
+
+---
+
+<a id="terminal-101"></a>
+
+## Terminal 101: How to Use Commands
+
+### The Three Words You Need to Know
+
+| Word         | What it means                                                                                |
+| :----------- | :------------------------------------------------------------------------------------------- |
+| **Terminal** | The app/window (Ghostty or iTerm2).                                                          |
+| **Shell**    | The program inside the window that reads your commands and runs them. On macOS it's **Zsh**. |
+| **Prompt**   | The text at the start of the line (e.g. `~ ❯`) that means _"I'm ready, type something."_     |
+
+### Anatomy of a Command
+
+Every command follows the same pattern:
+
+```text
+command   -options   target
+   │          │         │
+   ls        -la     ~/Desktop
+   │          │         └── what to act on (a file or folder)
+   │          └──────────── how to do it (flags start with - or --)
+   └─────────────────────── what to do
+```
+
+Type the command, then press **Return** to run it. That's it.
+
+> [!TIP]
+>
+> - Press **Tab** to auto-complete file and folder names. It saves typing and prevents typos.
+> - Press **↑ / ↓** to scroll through commands you've already typed.
+> - Press **Ctrl + C** to cancel a command that's running or stuck.
+> - Commands are **case-sensitive**: `Desktop` and `desktop` are different.
+
+### Understanding Paths
+
+A **path** is the address of a file or folder.
+
+| Symbol | Meaning                         | Example                       |
+| :----: | :------------------------------ | :---------------------------- |
+|  `~`   | Your home folder (`/Users/you`) | `cd ~`                        |
+|  `.`   | The folder you're in right now  | `open .` (opens it in Finder) |
+|  `..`  | The folder one level up         | `cd ..`                       |
+|  `/`   | The very top of the disk (root) | `ls /`                        |
+
+### 📂 Essential Commands
+
+#### Moving Around
+
+| Command        | What it does                                       | Try it       |
+| :------------- | :------------------------------------------------- | :----------- |
+| `pwd`          | **P**rint **w**orking **d**irectory (where am I?)  | `pwd`        |
+| `ls`           | **L**i**s**t files in the current folder           | `ls`         |
+| `ls -la`       | List **all** files (including hidden) with details | `ls -la`     |
+| `cd <folder>`  | **C**hange **d**irectory (go into a folder)        | `cd Desktop` |
+| `cd ..`        | Go up one folder                                   | `cd ..`      |
+| `cd ~` or `cd` | Go back to your home folder                        | `cd`         |
+| `cd -`         | Go back to the previous folder                     | `cd -`       |
+
+#### Creating, Copying, Moving & Deleting
+
+| Command             | What it does                              | Try it                        |
+| :------------------ | :---------------------------------------- | :---------------------------- |
+| `mkdir <name>`      | **M**a**k**e a new **dir**ectory (folder) | `mkdir projects`              |
+| `mkdir -p a/b/c`    | Make nested folders in one go             | `mkdir -p code/web/app`       |
+| `touch <file>`      | Create an empty file                      | `touch notes.txt`             |
+| `cp <from> <to>`    | **C**o**p**y a file                       | `cp notes.txt backup.txt`     |
+| `cp -r <from> <to>` | Copy a whole folder                       | `cp -r projects projects-old` |
+| `mv <from> <to>`    | **M**o**v**e or **rename** a file/folder  | `mv notes.txt todo.txt`       |
+| `rm <file>`         | **R**e**m**ove (delete) a file            | `rm backup.txt`               |
+| `rm -r <folder>`    | Delete a folder and everything in it      | `rm -r projects-old`          |
+
+> [!WARNING]
+> `rm` deletes files **permanently**. They do **not** go to the Trash. Double-check before pressing Return, and never run `rm -rf /` or `rm -rf ~`.
+
+#### Reading Files
+
+| Command       | What it does                             | Try it          |
+| :------------ | :--------------------------------------- | :-------------- |
+| `cat <file>`  | Print the whole file                     | `cat todo.txt`  |
+| `less <file>` | Scroll through a long file (`q` to quit) | `less ~/.zshrc` |
+| `head <file>` | Show the first 10 lines                  | `head ~/.zshrc` |
+| `tail <file>` | Show the last 10 lines                   | `tail ~/.zshrc` |
+| `nano <file>` | Edit a file inside the terminal          | `nano todo.txt` |
+| `open <file>` | Open with the default macOS app          | `open todo.txt` |
+| `code <file>` | Open in VS Code (if installed)           | `code .`        |
+
+#### Handy Helpers
+
+| Command            | What it does                                |
+| :----------------- | :------------------------------------------ |
+| `clear`            | Wipe the screen clean (or press `Cmd + K`)  |
+| `history`          | Show commands you've run before             |
+| `man <command>`    | Read the manual for a command (`q` to quit) |
+| `<command> --help` | Quick help for most commands                |
+| `which <command>`  | Show where a command lives on disk          |
+| `echo "hi"`        | Print text                                  |
+| `exit`             | Close the current shell/tab                 |
+
+### ✍️ Editing in `nano` (The Beginner's Text Editor)
+
+You'll edit config files like `~/.zshrc` many times in this guide. `nano` is the easiest editor:
+
+```bash
+nano ~/.zshrc
+```
+
+| Keys                      | Action                 |
+| :------------------------ | :--------------------- |
+| Arrow keys                | Move the cursor        |
+| `Ctrl + O`, then `Return` | **Save** the file      |
+| `Ctrl + X`                | **Exit** nano          |
+| `Ctrl + W`                | Search inside the file |
+| `Ctrl + K`                | Cut the current line   |
+| `Ctrl + U`                | Paste the cut line     |
+
+> [!TIP]
+> Prefer a normal app? Use `open -e ~/.zshrc` to edit in **TextEdit**, or `code ~/.zshrc` for **VS Code**.
+
+### 🏃 Practice Run (2 minutes)
+
+Copy these one at a time and watch what happens:
+
+```bash
+cd ~                       # go home
+mkdir terminal-practice    # make a folder
+cd terminal-practice       # go into it
+pwd                        # confirm where you are
+touch hello.txt            # create a file
+echo "Hello, terminal!" > hello.txt   # write text into it
+cat hello.txt              # read it back
+ls -la                     # see the file with details
+cd ..                      # go back up
+rm -r terminal-practice    # clean up
+```
+
+> Anything after `#` is a **comment**: the shell ignores it. It's just there to explain.
 
 ---
 
 <a id="step-by-step-installation"></a>
 
-## 📖 Step-by-Step Installation
+## Step-by-Step Installation
+
+Follow these steps in order. After each one, run the **verify** command to make sure it worked before moving on.
 
 <a id="step-1-install-homebrew"></a>
 
@@ -190,22 +352,22 @@ Choose **one** terminal application. Both deliver an exceptional experience, but
 
 > Official Documentation: [brew.sh](https://brew.sh) · [Installation Guide](https://docs.brew.sh/Installation)
 
-Homebrew is the premier package manager for macOS. It compiles and installs developer tools without requiring manual drag-and-drop downloads.
+**What is it?** Homebrew is like an App Store for the terminal. Instead of downloading installers from websites, you type `brew install <name>` and it handles everything.
 
-#### 1. Execute the Installer
+#### 1. Run the Installer
 
-Launch **Terminal** (`Applications → Utilities → Terminal`) and paste:
+Open the built-in **Terminal** app (`Applications → Utilities → Terminal`, or press `Cmd + Space` and type _Terminal_) and paste:
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-- Enter your macOS account password when prompted. _(Note: Terminal does not show visual characters while typing passwords)._
-- If prompted, accept the installation of the **Xcode Command Line Tools**.
+- Enter your Mac password when asked. **Nothing will appear as you type. That's normal.** Just type it and press Return.
+- If asked to install the **Xcode Command Line Tools**, say yes. This can take a few minutes.
 
-#### 2. Configure PATH (Apple Silicon M-Series)
+#### 2. Add Homebrew to Your PATH (Apple Silicon)
 
-On Apple Silicon Macs, Homebrew installs to `/opt/homebrew`. Add it to your shell profile:
+The `PATH` is the list of places your shell looks for commands. On M-series Macs, Homebrew lives in `/opt/homebrew`, so we tell the shell about it:
 
 ```bash
 echo >> ~/.zprofile
@@ -213,7 +375,7 @@ echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
-#### 3. Verify Installation
+#### 3. Verify
 
 ```bash
 brew --version
@@ -222,6 +384,17 @@ brew --version
 ```text
 Homebrew 4.x.x
 ```
+
+#### Everyday Homebrew Commands
+
+| Command                       | What it does                         |
+| :---------------------------- | :----------------------------------- |
+| `brew install <name>`         | Install a command-line tool          |
+| `brew install --cask <name>`  | Install a Mac app (Ghostty, iTerm2…) |
+| `brew uninstall <name>`       | Remove something                     |
+| `brew update && brew upgrade` | Update everything                    |
+| `brew list`                   | See what's installed                 |
+| `brew search <word>`          | Find a package                       |
 
 ---
 
@@ -235,62 +408,52 @@ Choose **Option A (Ghostty)** or **Option B (iTerm2)**.
 
 > Official Documentation: [ghostty.org](https://ghostty.org) · [Config Guide](https://ghostty.org/docs/config) · [Theme Directory](https://ghostty.org/docs/features/theme)
 
-##### 1. Install via Homebrew
+##### 1. Install
 
 ```bash
 brew install --cask ghostty
 ```
 
-_(Alternative: Download the universal `.dmg` installer directly from [ghostty.org/download](https://ghostty.org/download))._
+_(Alternative: download the `.dmg` from [ghostty.org/download](https://ghostty.org/download).)_
 
-##### 2. Launch Ghostty
+##### 2. Open It
 
 ```bash
 open -a Ghostty
 ```
 
-##### 3. Configure Appearance
+Or find **Ghostty** in Launchpad / Spotlight (`Cmd + Space`). Right-click its Dock icon → **Options → Keep in Dock** so it's always one click away.
 
-Ghostty uses a clean text configuration file located at:
+##### 3. Create Your Config File
 
-```text
-~/.config/ghostty/config.ghostty
-```
-
-_(Or `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty`)_
-
-> [!NOTE]
-> Ghostty versions prior to 1.2.3 use a file named `config` instead of `config.ghostty`.
-
-Open the configuration file from Ghostty with `Cmd + ,` or from your shell:
+Ghostty is configured with a plain text file. Create and open it:
 
 ```bash
 mkdir -p ~/.config/ghostty && nano ~/.config/ghostty/config.ghostty
 ```
 
-Add this polished starting configuration:
+_(You can also press `Cmd + ,` inside Ghostty to open it. Ghostty versions older than 1.2.3 use a file named `config` instead of `config.ghostty`.)_
+
+Paste this starter config, then save (`Ctrl + O`, `Return`) and exit (`Ctrl + X`):
 
 ```ini
-# Terminal Forge - Ghostty Configuration
+# Terminal Forge - Ghostty Starter Config
 font-family = "MesloLGS Nerd Font"
 font-size = 14
 theme = "Catppuccin Mocha"
 window-padding-x = 12
 window-padding-y = 12
-window-decoration = true
 macos-titlebar-style = transparent
 cursor-style = bar
 cursor-style-blink = true
 ```
 
-Discover built-in themes and available fonts:
+##### 4. Reload
 
-```bash
-ghostty +list-themes
-ghostty +list-fonts
-```
+Press **`Cmd + Shift + ,`** in Ghostty to apply changes instantly. No restart needed.
 
-Press `Cmd + Shift + ,` inside Ghostty at any time to instantly hot-reload configuration changes.
+> [!TIP]
+> Each line is `setting = value`. Lines starting with `#` are comments. To see every option Ghostty supports, run `ghostty +show-config --default --docs | less`.
 
 ---
 
@@ -298,33 +461,44 @@ Press `Cmd + Shift + ,` inside Ghostty at any time to instantly hot-reload confi
 
 > Official Documentation: [iterm2.com](https://iterm2.com) · [Documentation](https://iterm2.com/documentation.html) · [Shell Integration](https://iterm2.com/documentation-shell-integration.html)
 
-##### 1. Install via Homebrew
+##### 1. Install
 
 ```bash
 brew install --cask iterm2
 ```
 
-_(Alternative: Download the stable release archive from [iterm2.com/downloads.html](https://iterm2.com/downloads.html))._
+_(Alternative: download from [iterm2.com/downloads.html](https://iterm2.com/downloads.html).)_
 
-##### 2. Launch iTerm2
+##### 2. Open It
 
 ```bash
 open -a iTerm
 ```
 
-##### 3. Recommended Settings
+##### 3. Basic Setup (All Done with Clicks)
 
-Open **iTerm2 → Settings…** (`Cmd + ,`) and adjust the following:
+Open **iTerm2 → Settings…** (`Cmd + ,`) and change these:
 
-| Setting Category    | Recommended Value                | Navigation Path                            |
-| :------------------ | :------------------------------- | :----------------------------------------- |
-| **Typography**      | `MesloLGS Nerd Font`, Size 14    | **Profiles → Text → Font**                 |
-| **Color Preset**    | `Solarized Dark` or `Pastel`     | **Profiles → Colors → Color Presets…**     |
-| **Window Geometry** | 100 columns × 30 rows            | **Profiles → Window → Columns / Rows**     |
-| **Default Shell**   | Make iTerm2 the default terminal | **iTerm2 menu → Make iTerm2 Default Term** |
+| What to change        | Set it to                         | Where to find it                              |
+| :-------------------- | :-------------------------------- | :-------------------------------------------- |
+| **Font**              | `MesloLGS Nerd Font`, size 14     | **Profiles → Text → Font**                    |
+| **Color scheme**      | `Pastel (Dark Background)` or any | **Profiles → Colors → Color Presets…**        |
+| **Window size**       | 100 columns × 30 rows             | **Profiles → Window → Columns / Rows**        |
+| **Word-jumping keys** | `Natural Text Editing`            | **Profiles → Keys → Key Mappings → Presets…** |
+| **Cleaner look**      | `Minimal`                         | **Appearance → General → Theme**              |
+| **Default terminal**  | Make iTerm2 the default           | **iTerm2 menu → Make iTerm2 Default Term**    |
 
 > [!TIP]
-> From this point forward, run all remaining steps inside your newly installed terminal emulator (**Ghostty** or **iTerm2**).
+> The **Natural Text Editing** preset is a must for beginners: it makes `Option + ←/→` jump by word and `Cmd + ←/→` jump to the start/end of the line, just like in any other Mac app.
+
+##### 4. (Optional) Install Shell Integration
+
+Gives you extras like jumping between previous commands with `Cmd + Shift + ↑/↓`:
+
+**iTerm2 menu → Install Shell Integration**
+
+> [!IMPORTANT]
+> From here on, run every step **inside your new terminal app** (Ghostty or iTerm2), not the old built-in Terminal.
 
 ---
 
@@ -332,7 +506,7 @@ Open **iTerm2 → Settings…** (`Cmd + ,`) and adjust the following:
 
 ### Step 3 · Verify Zsh
 
-macOS ships with Zsh as its native default shell. Confirm your active shell:
+**What is it?** Zsh is the shell (the program that understands your commands). macOS already uses it by default, so this is just a check.
 
 ```bash
 echo $SHELL
@@ -342,8 +516,6 @@ echo $SHELL
 /bin/zsh
 ```
 
-Inspect the installed version:
-
 ```bash
 zsh --version
 ```
@@ -352,217 +524,56 @@ zsh --version
 zsh 5.9 (arm64-apple-darwin24.0)
 ```
 
-If your output is not `/bin/zsh`, consult [Zsh is not the default shell](#zsh-is-not-the-default-shell).
+If you don't see `/bin/zsh`, see [Zsh is not the default shell](#zsh-is-not-the-default-shell).
 
 ---
+
+<a id="choose-your-guide"></a>
+
+### Step 4 · Pick Your Guide and Keep Going 🚀
+
+You've finished the basics! 🎉 From here, the steps are a little different for each terminal app, so they live in **two separate guides**. Open the guide for the app you installed in [Step 2](#step-2-install-a-terminal-app) and continue from **Step 4**.
 
 <a id="step-4-install-oh-my-zsh"></a>
-
-### Step 4 · Install Oh My Zsh
-
-> Official Documentation: [ohmyz.sh](https://ohmyz.sh) · [GitHub Repository](https://github.com/ohmyzsh/ohmyzsh)
-
-Oh My Zsh is an open-source, community-driven framework for managing your Zsh environment, aliases, and functions.
-
-#### 1. Safeguard Existing Configuration
-
-```bash
-cp ~/.zshrc ~/.zshrc.backup 2>/dev/null || true
-```
-
-#### 2. Run the Official Installer
-
-```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-The installer will:
-
-- Clone Oh My Zsh into `~/.oh-my-zsh`
-- Archive any prior `~/.zshrc` to `~/.zshrc.pre-oh-my-zsh`
-- Initialize a fresh, well-commented `~/.zshrc`
-
-> [!NOTE]
-> If your previous config contained custom environmental variables or exports, transfer them from `~/.zshrc.pre-oh-my-zsh` into the new `~/.zshrc`.
-
-#### 3. Verify Structure
-
-```bash
-ls ~/.oh-my-zsh
-```
-
-Ensure the directory lists `plugins`, `themes`, and `custom`.
-
----
-
 <a id="step-5-install-a-nerd-font"></a>
-
-### Step 5 · Install a Nerd Font
-
-> Official Documentation: [nerdfonts.com](https://www.nerdfonts.com) · [Powerlevel10k Font Guide](https://github.com/romkatv/powerlevel10k#fonts)
-
-A **Nerd Font** incorporates thousands of developer icons (Git branches, OS badges, programming language symbols) directly into the font's glyph table.
-
-#### 1. Install MesloLGS Nerd Font
-
-```bash
-brew install --cask font-meslo-lg-nerd-font
-```
-
-> [!TIP]
-> If you are using iTerm2, the Powerlevel10k wizard in Step 6 can automatically download and apply MesloLGS NF for you. Ghostty users should install via Homebrew as shown above.
-
-#### 2. Select Font in Ghostty
-
-Add or update the following line in `~/.config/ghostty/config.ghostty`:
-
-```ini
-font-family = "MesloLGS Nerd Font"
-```
-
-Reload with `Cmd + Shift + ,`.
-
-#### 3. Select Font in iTerm2
-
-1. Open **Settings** (`Cmd + ,`) → **Profiles** → **Text**.
-2. Under **Font**, select **MesloLGS Nerd Font** (or **MesloLGS NF**).
-
-#### 4. Test Glyph Rendering
-
-Test if your terminal can render developer glyphs:
-
-```bash
-echo -e "  "
-```
-
-| Expected Glyph | Representation      |
-| :------------: | :------------------ |
-|      ``       | Git Branch symbol   |
-|      ``       | GitHub Octocat logo |
-|      ``       | Apple logo          |
-
-_If you see rectangles, question marks, or broken glyphs, re-check your terminal font preferences._
-
----
-
 <a id="step-6-install-powerlevel10k"></a>
-
-### Step 6 · Install Powerlevel10k
-
-> Official Documentation: [github.com/romkatv/powerlevel10k](https://github.com/romkatv/powerlevel10k)
-
-Powerlevel10k is renowned for its sub-millisecond execution speed, instant prompt capability, and extensive customization options.
-
-#### 1. Clone the Theme Repository
-
-```bash
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
-  "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-```
-
-#### 2. Enable in `~/.zshrc`
-
-Open `~/.zshrc` using your preferred editor:
-
-```bash
-nano ~/.zshrc      # Terminal editor (Ctrl+O to save, Ctrl+X to exit)
-# or: code ~/.zshrc
-```
-
-Find the `ZSH_THEME` assignment and update it:
-
-```bash
-ZSH_THEME="powerlevel10k/powerlevel10k"
-```
-
-#### 3. Launch the Interactive Wizard
-
-Restart Zsh to trigger the interactive setup assistant:
-
-```bash
-exec zsh
-```
-
-Follow the on-screen visual prompts to pick your preferred aesthetic:
-
-- **Style**: _Pure_, _Classic_, _Rainbow_, or _Lean_
-- **Character Set**: _Unicode_
-- **Prompt Details**: Time format, head shape, tail shape, line count
-
-To recalibrate your prompt design at any time in the future, simply run:
-
-```bash
-p10k configure
-```
-
----
-
 <a id="step-7-enable-plugins"></a>
+<a id="customize-the-display"></a>
+<a id="folder-and-file-icons"></a>
+<a id="shortcut-commands"></a>
+<a id="keyboard-shortcuts"></a>
 
-### Step 7 · Enable Plugins
+<table>
+  <tr>
+    <th align="center" width="50%">👻 I'm using Ghostty</th>
+    <th align="center" width="50%">🚀 I'm using iTerm2</th>
+  </tr>
+  <tr>
+    <td valign="top">
+      You change settings by editing <b>one small text file</b>.<br /><br />
+      👉 <a href="./GHOSTTY-SETUP.md"><b>Open the Ghostty Setup Guide</b></a>
+    </td>
+    <td valign="top">
+      You change settings by <b>clicking</b> in a settings window.<br /><br />
+      👉 <a href="./ITERM2-SETUP.md"><b>Open the iTerm2 Setup Guide</b></a>
+    </td>
+  </tr>
+</table>
 
-> Official Documentation: [Oh My Zsh Plugins Directory](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins)
+**Both guides walk you through the same things, in simple words:**
 
-Oh My Zsh bundles hundreds of battle-tested plugins. Enable only the plugins you need to preserve ultra-fast shell launch times.
-
-#### 🚀 Recommended Core Plugins
-
-| Plugin   | Capability                      | Example Shortcuts                                                                               |
-| :------- | :------------------------------ | :---------------------------------------------------------------------------------------------- |
-| `git`    | Git aliases & branch status     | `gst` → `git status`<br>`gco` → `git checkout`<br>`ga` → `git add`<br>`gcmsg` → `git commit -m` |
-| `macos`  | Native macOS integrations       | `ofd` → Open current dir in Finder<br>`pfd` → Print Finder path                                 |
-| `docker` | Container completions & aliases | `docker <Tab>` tab-completion                                                                   |
-| `npm`    | Node package manager shortcuts  | `npmg` → `npm install --global`                                                                 |
-| `python` | Python environment helpers      | `py` → `python3`<br>`pyclean` → Remove `__pycache__`                                            |
-
-#### Enable Plugins in `~/.zshrc`
-
-Edit the `plugins=(...)` line in `~/.zshrc`. Ensure entries are separated by **spaces**:
-
-```bash
-plugins=(git macos python)
-```
-
-Apply the changes immediately:
-
-```bash
-source ~/.zshrc
-```
-
-#### Verify Active Aliases
-
-```bash
-alias gst
-```
-
-```text
-gst='git status'
-```
-
-<details>
-<summary><b>🌟 Pro Tip: Supercharge with Community Plugins</b> (Click to expand)</summary>
-
-<br />
-
-Take your terminal to the next level with autosuggestions and fast syntax highlighting:
-
-```bash
-# 1. zsh-autosuggestions (Fish-like auto suggestions as you type)
-git clone https://github.com/zsh-users/zsh-autosuggestions \
-  "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
-
-# 2. zsh-syntax-highlighting (Fish-like syntax validation)
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
-  "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
-```
-
-Then append them to your `plugins=(...)` list in `~/.zshrc`:
-
-```bash
-plugins=(git macos python zsh-autosuggestions zsh-syntax-highlighting)
-```
-
-</details>
+| Step | What you'll do                                             | 👻 Ghostty                                                       | 🚀 iTerm2                                                       |
+| :--: | :--------------------------------------------------------- | :--------------------------------------------------------------- | :-------------------------------------------------------------- |
+|  4   | Install **Oh My Zsh** (themes + plugins for your shell)    | [Go](./GHOSTTY-SETUP.md#step-4-install-oh-my-zsh)                | [Go](./ITERM2-SETUP.md#step-4-install-oh-my-zsh)                |
+|  5   | Install a **Nerd Font** so icons show up                   | [Go](./GHOSTTY-SETUP.md#step-5-install-a-nerd-font)              | [Go](./ITERM2-SETUP.md#step-5-install-a-nerd-font)              |
+|  6   | Install **Powerlevel10k** for a pretty prompt              | [Go](./GHOSTTY-SETUP.md#step-6-install-powerlevel10k)            | [Go](./ITERM2-SETUP.md#step-6-install-powerlevel10k)            |
+|  7   | Turn on **plugins** (autosuggestions, syntax colors)       | [Go](./GHOSTTY-SETUP.md#step-7-turn-on-plugins)                  | [Go](./ITERM2-SETUP.md#step-7-turn-on-plugins)                  |
+|  8   | **Change the look**: themes, fonts, transparency           | [Go](./GHOSTTY-SETUP.md#step-8-change-how-ghostty-looks)         | [Go](./ITERM2-SETUP.md#step-8-change-how-iterm2-looks)          |
+|  9   | Add **folder & file icons** to `ls`                        | [Go](./GHOSTTY-SETUP.md#step-9-add-folder-and-file-icons)        | [Go](./ITERM2-SETUP.md#step-9-add-folder-and-file-icons)        |
+|  10  | **Jump to any folder** fast with zoxide (`z name`)         | [Go](./GHOSTTY-SETUP.md#step-10-jump-to-folders-with-zoxide)     | [Go](./ITERM2-SETUP.md#step-10-jump-to-folders-with-zoxide)     |
+|  11  | Make your own **shortcut commands** (aliases)              | [Go](./GHOSTTY-SETUP.md#step-11-make-your-own-shortcut-commands) | [Go](./ITERM2-SETUP.md#step-11-make-your-own-shortcut-commands) |
+|  12  | Learn the **keyboard shortcuts** (tabs, splits, drop-down) | [Go](./GHOSTTY-SETUP.md#step-12-learn-the-keyboard-shortcuts)    | [Go](./ITERM2-SETUP.md#step-12-learn-the-keyboard-shortcuts)    |
+|  ✅  | **Final check** and **help** if something breaks           | [Go](./GHOSTTY-SETUP.md#final-check)                             | [Go](./ITERM2-SETUP.md#final-check)                             |
 
 ---
 
@@ -570,62 +581,30 @@ plugins=(git macos python zsh-autosuggestions zsh-syntax-highlighting)
 
 ## 🔍 Verification Checklist
 
-Ensure every component of your terminal forge is firing on all cylinders:
+Each guide ends with its own **Final Check** table that tests everything:
 
-- [ ] **Homebrew Package Manager**
+- 👻 [Ghostty Final Check](./GHOSTTY-SETUP.md#final-check)
+- 🚀 [iTerm2 Final Check](./ITERM2-SETUP.md#final-check)
 
-  ```bash
-  brew --version
-  ```
+Quick check for the basics (Steps 1–3):
 
-  _Expected: `Homebrew 4.x.x`_
-
-- [ ] **Modern Terminal Emulator**
-      _Ghostty or iTerm2 launches cleanly with GPU hardware acceleration._
-
-- [ ] **Native Zsh Shell**
-
-  ```bash
-  echo $SHELL
-  ```
-
-  _Expected: `/bin/zsh`_
-
-- [ ] **Oh My Zsh Framework**
-
-  ```bash
-  test -d ~/.oh-my-zsh && echo "Installed"
-  ```
-
-  _Expected: `Installed`_
-
-- [ ] **Nerd Font Glyphs**
-
-  ```bash
-  echo -e "  "
-  ```
-
-  _Expected: Clean branch, GitHub, and Apple icons without missing glyph boxes._
-
-- [ ] **Powerlevel10k Prompt Engine**
-
-  ```bash
-  echo $ZSH_THEME
-  ```
-
-  _Expected: `powerlevel10k/powerlevel10k`_
-
-- [ ] **Productivity Aliases**
-  ```bash
-  alias gst
-  ```
-  _Expected: `gst='git status'`_
+| Test     | Run this         | You should see   |
+| :------- | :--------------- | :--------------- |
+| Homebrew | `brew --version` | `Homebrew 4.x.x` |
+| Zsh      | `echo $SHELL`    | `/bin/zsh`       |
 
 ---
 
 <a id="troubleshooting"></a>
 
 ## 🛠️ Troubleshooting
+
+Problems with icons, themes, aliases, or settings? Each guide has its own **Help** section:
+
+- 👻 [Ghostty Help](./GHOSTTY-SETUP.md#troubleshooting)
+- 🚀 [iTerm2 Help](./ITERM2-SETUP.md#troubleshooting)
+
+Problems with the basics (Steps 1–3) are below.
 
 <a id="command-not-found-brew"></a>
 
@@ -634,9 +613,9 @@ Ensure every component of your terminal forge is firing on all cylinders:
 
 <br />
 
-Homebrew's binary directory is missing from your active `PATH`.
+Your shell doesn't know where Homebrew is installed yet.
 
-On **Apple Silicon** Macs (`M1/M2/M3/M4`), execute:
+On **Apple Silicon** Macs (`M1/M2/M3/M4`):
 
 ```bash
 echo >> ~/.zprofile
@@ -654,43 +633,6 @@ eval "$(/usr/local/bin/brew shellenv)"
 
 </details>
 
-<a id="prompt-icons-show-as-boxes"></a>
-
-<details>
-<summary><b>🔲 Prompt icons render as rectangles or question marks</b></summary>
-
-<br />
-
-Your terminal application is not configured to render a Nerd Font:
-
-1. Confirm **MesloLGS Nerd Font** is installed via `brew install --cask font-meslo-lg-nerd-font`.
-2. In **Ghostty**: Ensure `font-family = "MesloLGS Nerd Font"` is in `~/.config/ghostty/config.ghostty`.
-3. In **iTerm2**: Go to **Profiles → Text → Font** and select **MesloLGS Nerd Font**.
-4. Restart your terminal application and execute `p10k configure`.
-
-</details>
-
-<a id="zshrc-changes-do-not-take-effect"></a>
-
-<details>
-<summary><b>🔄 <code>~/.zshrc</code> edits do not take effect</b></summary>
-
-<br />
-
-Zsh does not reload dotfiles automatically. Force a refresh in your active session:
-
-```bash
-source ~/.zshrc
-```
-
-Or start a clean subshell:
-
-```bash
-exec zsh
-```
-
-</details>
-
 <a id="zsh-is-not-the-default-shell"></a>
 
 <details>
@@ -698,51 +640,36 @@ exec zsh
 
 <br />
 
-Verify your current login shell:
+Check your current shell:
 
 ```bash
 echo $SHELL
 ```
 
-If it prints `/bin/bash` or another shell, switch to Zsh:
+If it shows `/bin/bash` or something else, switch to Zsh:
 
 ```bash
 chsh -s /bin/zsh
 ```
 
-Enter your macOS password when prompted, then quit and reopen your terminal emulator.
-
-</details>
-
-<a id="prompt-changed-after-oh-my-zsh"></a>
-
-<details>
-<summary><b>⚠️ Prompt appearance reset after installing Oh My Zsh</b></summary>
-
-<br />
-
-This is expected behavior. The Oh My Zsh installer initializes a default `~/.zshrc` configured with the `robbyrussell` theme. Your previous setup is saved as `~/.zshrc.pre-oh-my-zsh`. Simply re-apply:
-
-```bash
-ZSH_THEME="powerlevel10k/powerlevel10k"
-```
+Enter your Mac password, then quit and reopen your terminal.
 
 </details>
 
 <a id="broken-zshrc"></a>
 
 <details>
-<summary><b>🚨 Broken <code>~/.zshrc</code> configuration</b></summary>
+<summary><b>🚨 I broke my <code>~/.zshrc</code></b></summary>
 
 <br />
 
-Revert to your pre-install backup:
+Restore your backup:
 
 ```bash
 cp ~/.zshrc.backup ~/.zshrc && source ~/.zshrc
 ```
 
-Or restore the pre-Oh My Zsh snapshot:
+Or restore the version from before Oh My Zsh:
 
 ```bash
 cp ~/.zshrc.pre-oh-my-zsh ~/.zshrc && source ~/.zshrc
@@ -754,16 +681,51 @@ cp ~/.zshrc.pre-oh-my-zsh ~/.zshrc && source ~/.zshrc
 
 <a id="official-documentation"></a>
 
-## 📚 Official Documentation & References
+## Official Documentation & References
 
-| Technology        | Project Links                                                     | Documentation & Guides                                                                                                                                                                        |
-| :---------------- | :---------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Homebrew**      | [brew.sh](https://brew.sh)                                        | [Installation Guide](https://docs.brew.sh/Installation) · [Formula Directory](https://formulae.brew.sh)                                                                                       |
-| **Ghostty**       | [ghostty.org](https://ghostty.org)                                | [Binary Installation](https://ghostty.org/docs/install/binary) · [Configuration Reference](https://ghostty.org/docs/config/reference) · [Theming](https://ghostty.org/docs/features/theme)    |
-| **iTerm2**        | [iterm2.com](https://iterm2.com)                                  | [Documentation](https://iterm2.com/documentation.html) · [Settings Reference](https://iterm2.com/documentation-preferences.html) · [Fonts Guide](https://iterm2.com/documentation-fonts.html) |
-| **Oh My Zsh**     | [ohmyz.sh](https://ohmyz.sh)                                      | [GitHub Repository](https://github.com/ohmyzsh/ohmyzsh) · [Complete Plugins Directory](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins)                                                       |
-| **Powerlevel10k** | [romkatv/powerlevel10k](https://github.com/romkatv/powerlevel10k) | [Configuration Manual](https://github.com/romkatv/powerlevel10k#configuration) · [Font Installation](https://github.com/romkatv/powerlevel10k#fonts)                                          |
-| **Nerd Fonts**    | [nerdfonts.com](https://www.nerdfonts.com)                        | [Font Downloads](https://www.nerdfonts.com/font-downloads) · [Glyph Cheat Sheet](https://www.nerdfonts.com/cheat-sheet)                                                                       |
+| Technology        | Project Links                                                     | Documentation & Guides                                                                                                                                                             |
+| :---------------- | :---------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Homebrew**      | [brew.sh](https://brew.sh)                                        | [Installation Guide](https://docs.brew.sh/Installation) · [Formula Directory](https://formulae.brew.sh)                                                                            |
+| **Ghostty**       | [ghostty.org](https://ghostty.org)                                | [Configuration Reference](https://ghostty.org/docs/config/reference) · [Keybindings](https://ghostty.org/docs/config/keybind) · [Theming](https://ghostty.org/docs/features/theme) |
+| **iTerm2**        | [iterm2.com](https://iterm2.com)                                  | [Documentation](https://iterm2.com/documentation.html) · [Settings Reference](https://iterm2.com/documentation-preferences.html) · [Color Schemes](https://iterm2colorschemes.com) |
+| **Oh My Zsh**     | [ohmyz.sh](https://ohmyz.sh)                                      | [GitHub Repository](https://github.com/ohmyzsh/ohmyzsh) · [Complete Plugins Directory](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins)                                            |
+| **Powerlevel10k** | [romkatv/powerlevel10k](https://github.com/romkatv/powerlevel10k) | [Configuration Manual](https://github.com/romkatv/powerlevel10k#configuration) · [Font Installation](https://github.com/romkatv/powerlevel10k#fonts)                               |
+| **Nerd Fonts**    | [nerdfonts.com](https://www.nerdfonts.com)                        | [Font Downloads](https://www.nerdfonts.com/font-downloads) · [Icon Cheat Sheet](https://www.nerdfonts.com/cheat-sheet)                                                             |
+| **eza**           | [eza-community/eza](https://github.com/eza-community/eza)         | [Usage & Options](https://github.com/eza-community/eza#command-line-options)                                                                                                       |
+
+---
+
+<a id="design-setup"></a>
+
+## 🎨 Set Up a Ready-Made Design
+
+Finished your Ghostty or iTerm2 guide? Now you can turn your terminal into one of the designs from the [🖼️ Design Gallery](#design-gallery). Each design has its own step-by-step setup guide.
+
+<table>
+  <tr>
+    <th align="center" width="50%">🐉 Dragon Forge</th>
+    <th align="center" width="50%">💻 DevDeck</th>
+  </tr>
+  <tr>
+    <td valign="top">
+      <i>Build · Learn · Conquer</i><br /><br />
+      A dark-fantasy command centre with a dragon-castle background, a jade ASCII dragon, and five split panes.<br /><br />
+      <b>Terminal:</b> 👻 Ghostty<br />
+      <b>Best after:</b> <a href="./GHOSTTY-SETUP.md">Ghostty Setup Guide</a><br /><br />
+      👉 <a href="./DragonForge.md"><b>Set up Dragon Forge</b></a>
+    </td>
+    <td valign="top">
+      <i>Code · Build · Deploy · Repeat</i><br /><br />
+      A neon-blue cyberpunk workspace with panes for git, a dev server, Docker, system stats, and quick commands.<br /><br />
+      <b>Terminal:</b> 🚀 iTerm2<br />
+      <b>Best after:</b> <a href="./ITERM2-SETUP.md">iTerm2 Setup Guide</a><br /><br />
+      👉 <a href="./DevDeck.md"><b>Set up DevDeck</b></a>
+    </td>
+  </tr>
+</table>
+
+> [!NOTE]
+> The Dragon Forge guide was written on **Ubuntu**. On a Mac, use `brew install` instead of `apt install` for the tools it lists. Everything else (Ghostty config, Zsh, Powerlevel10k) works the same.
 
 ---
 
